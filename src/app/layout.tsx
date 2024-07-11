@@ -17,12 +17,6 @@ export default function RootLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNotificationBarOpen, setIsNotificationBarOpen] = useState(false);
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 750) {
@@ -37,8 +31,6 @@ export default function RootLayout({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  if (!mounted) return null;
 
   const toggleSideBar = () => {
     setIsSidebarOpen((prev) => !prev);
