@@ -1,0 +1,9 @@
+.Sidebar {
+  height: 100vh;
+  background-color: #13142f;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  grid-template-rows: 100px auto 1fr;
+  justify-items: center;
+}

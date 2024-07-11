@@ -1,0 +1,58 @@
+.customGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 27px;
+  grid-gap: 28px;
+}
+
+@media (min-width: 527px) {
+  .customGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 202px);
+    grid-template-areas:
+      "area1 area2"
+      "area3 area4";
+  }
+}
+
+@media (min-width: 1025px) {
+  .customGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 202px);
+    grid-template-areas:
+      "area1 area2 area3"
+      "area4 area4 area4";
+  }
+}
+@media (min-width: 1290px) {
+  .customGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 202px);
+    grid-template-rows: 1fr;
+    grid-template-areas: "area1 area2 area3 area4";
+  }
+}
+
+.item1 {
+  grid-area: area1;
+}
+
+.item2 {
+  grid-area: area2;
+}
+
+.item3 {
+  grid-area: area3;
+}
+
+.item4 {
+  grid-area: area4;
+}
+
+.item5 {
+  grid-area: area5;
+}
+
+.item6 {
+  grid-area: area6;
+}

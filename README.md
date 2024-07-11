@@ -1,17 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dodo Dashboard
+
+Welcome to Dodo Dashboard, a project built with [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Ensure you have Node.js installed. We recommend using [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm) to manage Node.js versions.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install Node.js version specified in .nvmrc
+nvm install
+
+# Switch to the specified Node.js version
+nvm use
+this will will fetch the specific version from .nvmrc
+
+```
+
+### Installation
+
+Install pnpm globally to manage dependencies without conflicts:
+
+```bash
+# Install pnpm globally (if not already installed)
+npm install -g pnpm
+
+# Install project dependencies:
+pnpm i or pnpm install
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
