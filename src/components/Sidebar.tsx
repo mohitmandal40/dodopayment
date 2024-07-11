@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import DodoPayment from "@/components/DodoPaymentIcon";
+import { useUser } from "@/components/userProvider";
 
 const referItems = [
   {
@@ -97,6 +98,7 @@ const Sidebar: React.FC<{
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
+  const { user } = useUser();
   const { theme } = useTheme();
 
   const toggleMenu = (menu: string) => {
@@ -136,7 +138,9 @@ const Sidebar: React.FC<{
       />
       <div className="flex justify-center w-full items-center mb-4">
         <Image src={UserIcon} alt="UserIcon" className={`w-6 h-6 mr-[6px]`} />
-        {isSidebarOpen && <div className="py-[6px]">Superstars AI</div>}
+        {isSidebarOpen && (
+          <div className="py-[6px]">{user!.name || "Superstars AI"}</div>
+        )}
       </div>
 
       {isSidebarOpen && (
