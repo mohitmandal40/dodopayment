@@ -1,13 +1,11 @@
-"use client";
-
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export interface User {
   name: string;
   email: string;
 }
 
-interface UserContextType {
+export interface UserContextType {
   user: User | null;
   setUserDetails: (userData: User | null) => void;
   updateUserDetails: (updatedUser: Partial<User>) => void;
@@ -26,18 +24,7 @@ export const useUser = () => {
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(() => {
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
-
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
+  const [user, setUser] = useState<User | null>(null);
 
   const setUserDetails = (userData: User | null) => {
     setUser(userData);
@@ -48,13 +35,11 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
     setUser({ ...user, ...updatedUser });
   };
 
-  const contextValue: UserContextType = {
+  const value: UserContextType = {
     user,
     setUserDetails,
     updateUserDetails,
   };
 
-  return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
-  );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
